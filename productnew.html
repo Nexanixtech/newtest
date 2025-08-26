@@ -1472,23 +1472,31 @@
         }
     </style>
 <script>
-        // WhatsApp Modal Functionality
         const whatsappButton = document.getElementById('whatsappButton');
         const whatsappModal = document.getElementById('whatsappModal');
         const closeWhatsappModal = document.getElementById('closeWhatsappModal');
+        const thoughtBubble = document.getElementById('thoughtBubble');
 
+        // When WhatsApp button is clicked
         whatsappButton.addEventListener('click', () => {
             whatsappModal.classList.add('active');
+            // Hide thought bubble when opening modal
+            thoughtBubble.style.display = 'none';
         });
 
+        // When close button is clicked
         closeWhatsappModal.addEventListener('click', () => {
             whatsappModal.classList.remove('active');
+            // Show thought bubble when closing modal
+            thoughtBubble.style.display = 'flex';
         });
 
         // Close modal when clicking outside
         document.addEventListener('click', (e) => {
             if (!whatsappModal.contains(e.target) && !whatsappButton.contains(e.target)) {
                 whatsappModal.classList.remove('active');
+                // Show thought bubble when closing modal
+                thoughtBubble.style.display = 'flex';
             }
         });
     </script>
