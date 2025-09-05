@@ -2,10 +2,17 @@
 <html lang="en">
 
 <head>
+
+<script>
+  if (!localStorage.getItem('adminSession')) {
+    window.location.href = "login.html";
+  }
+</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Content Management System</title>
-    <link href="/images/tecpn.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="../images/tecpn.png" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://upload-widget.cloudinary.com/global/all.js"></script>
@@ -364,7 +371,7 @@
     </style>
 </head>
 
-<body>
+<body class="admin-page">
     <header>
         <div class="container">
             <h1>Content Management System</h1>
@@ -1237,6 +1244,14 @@
             }
         });
     </script>
+
+<script>
+  function adminLogout() {
+    localStorage.removeItem('adminSession');
+    window.location.href = "login.html";
+  }
+</script>
+
 </body>
 
 </html>
