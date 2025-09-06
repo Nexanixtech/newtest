@@ -729,7 +729,7 @@ const removeMainImage = document.getElementById('editCategoryForm').dataset.remo
                     if (imageUrl) {
                         const oldFileName = imageUrl.split('/').pop()
                         const { error: deleteError } = await supabase.storage
-                            .from('category-images')
+                            .from('product-assets')
                             .remove([oldFileName])
 
                         if (deleteError) console.error('Error deleting old image:', deleteError)
@@ -738,14 +738,14 @@ const removeMainImage = document.getElementById('editCategoryForm').dataset.remo
                     // Upload new image
                     const fileName = `category_${Date.now()}_${imageFile.name.replace(/\s+/g, '_')}`
                     const { data, error: uploadError } = await supabase.storage
-                        .from('category-images')
+                        .from('product-assets')
                         .upload(fileName, imageFile)
 
                     if (uploadError) throw uploadError
 
                     // Get public URL for the new image
                     const { data: { publicUrl } } = supabase.storage
-                        .from('category-images')
+                        .from('product-assets')
                         .getPublicUrl(fileName)
 
                     imageUrl = publicUrl
@@ -758,7 +758,7 @@ const removeMainImage = document.getElementById('editCategoryForm').dataset.remo
                     if (bgImageUrl) {
                         const oldBgFileName = bgImageUrl.split('/').pop()
                         const { error: deleteBgError } = await supabase.storage
-                            .from('category-images')
+                            .from('product-assets')
                             .remove([oldBgFileName])
 
                         if (deleteBgError) console.error('Error deleting old background image:', deleteBgError)
@@ -767,14 +767,14 @@ const removeMainImage = document.getElementById('editCategoryForm').dataset.remo
                     // Upload new background image
                     const bgFileName = `bg_category_${Date.now()}_${bgImageFile.name.replace(/\s+/g, '_')}`
                     const { data, error: uploadBgError } = await supabase.storage
-                        .from('category-images')
+                        .from('product-assets')
                         .upload(bgFileName, bgImageFile)
 
                     if (uploadBgError) throw uploadBgError
 
                     // Get public URL for the new background image
                     const { data: { publicUrl } } = supabase.storage
-                        .from('category-images')
+                        .from('product-assets')
                         .getPublicUrl(bgFileName)
 
                     bgImageUrl = publicUrl
@@ -785,7 +785,7 @@ const removeMainImage = document.getElementById('editCategoryForm').dataset.remo
                     if (mainImageUrl) {
                         const oldMainFileName = mainImageUrl.split('/').pop()
                         const { error: deleteMainError } = await supabase.storage
-                            .from('category-images')
+                            .from('product-assets')
                             .remove([oldMainFileName])
 
                         if (deleteMainError) console.error('Error deleting old main image:', deleteMainError)
@@ -794,14 +794,14 @@ const removeMainImage = document.getElementById('editCategoryForm').dataset.remo
                     // Upload new main image
                     const mainFileName = `main_category_${Date.now()}_${mainImageFile.name.replace(/\s+/g, '_')}`
                     const { data, error: uploadMainError } = await supabase.storage
-                        .from('category-images')
+                        .from('product-assets')
                         .upload(mainFileName, mainImageFile)
 
                     if (uploadMainError) throw uploadMainError
 
                     // Get public URL for the new main image
                     const { data: { publicUrl } } = supabase.storage
-                        .from('category-images')
+                        .from('product-assets')
                         .getPublicUrl(mainFileName)
 
                     mainImageUrl = publicUrl
@@ -811,7 +811,7 @@ const removeMainImage = document.getElementById('editCategoryForm').dataset.remo
                     if (bgImageUrl) {
                         const oldBgFileName = bgImageUrl.split('/').pop();
                         const { error: deleteBgError } = await supabase.storage
-                            .from('category-images')
+                            .from('product-assets')
                             .remove([oldBgFileName]);
                 
                         if (deleteBgError) console.error('Error deleting old background image:', deleteBgError);
@@ -824,7 +824,7 @@ const removeMainImage = document.getElementById('editCategoryForm').dataset.remo
                     if (mainImageUrl) {
                         const oldMainFileName = mainImageUrl.split('/').pop();
                         const { error: deleteMainError } = await supabase.storage
-                            .from('category-images')
+                            .from('product-assets')
                             .remove([oldMainFileName]);
                 
                         if (deleteMainError) console.error('Error deleting old main image:', deleteMainError);
@@ -901,14 +901,14 @@ document.getElementById('editCategoryForm').dataset.removeMainImage = 'false';
                 if (imageFile) {
                     const fileName = `category_${Date.now()}_${imageFile.name.replace(/\s+/g, '_')}`;
                     const { data, error: uploadError } = await supabase.storage
-                        .from('category-images')
+                        .from('product-assets')
                         .upload(fileName, imageFile);
 
                     if (uploadError) throw uploadError;
 
                     // Get public URL for the uploaded image
                     const { data: { publicUrl } } = supabase.storage
-                        .from('category-images')
+                        .from('product-assets')
                         .getPublicUrl(fileName);
 
                     imageUrl = publicUrl;
@@ -919,14 +919,14 @@ document.getElementById('editCategoryForm').dataset.removeMainImage = 'false';
                 if (bgImageFile) {
                     const bgFileName = `bg_category_${Date.now()}_${bgImageFile.name.replace(/\s+/g, '_')}`;
                     const { data, error: uploadBgError } = await supabase.storage
-                        .from('category-images')
+                        .from('product-assets')
                         .upload(bgFileName, bgImageFile);
 
                     if (uploadBgError) throw uploadBgError;
 
                     // Get public URL for the uploaded background image
                     const { data: { publicUrl } } = supabase.storage
-                        .from('category-images')
+                        .from('product-assets')
                         .getPublicUrl(bgFileName);
 
                     bgImageUrl = publicUrl;
@@ -936,14 +936,14 @@ document.getElementById('editCategoryForm').dataset.removeMainImage = 'false';
                 if (mainImageFile) {
                     const mainFileName = `main_category_${Date.now()}_${mainImageFile.name.replace(/\s+/g, '_')}`;
                     const { data, error: uploadMainError } = await supabase.storage
-                        .from('category-images')
+                        .from('product-assets')
                         .upload(mainFileName, mainImageFile);
 
                     if (uploadMainError) throw uploadMainError;
 
                     // Get public URL for the uploaded main image
                     const { data: { publicUrl } } = supabase.storage
-                        .from('category-images')
+                        .from('product-assets')
                         .getPublicUrl(mainFileName);
 
                     mainImageUrl = publicUrl;
@@ -996,7 +996,7 @@ document.getElementById('editCategoryForm').dataset.removeMainImage = 'false';
                 if (category.image_url) {
                     const fileName = category.image_url.split('/').pop();
                     const { error: storageError } = await supabase.storage
-                        .from('category-images')
+                        .from('product-assets')
                         .remove([fileName]);
 
                     if (storageError) console.error('Error deleting image:', storageError);
@@ -1004,7 +1004,7 @@ document.getElementById('editCategoryForm').dataset.removeMainImage = 'false';
                 if (category.bg_image_url) {
                     const bgFileName = category.bg_image_url.split('/').pop();
                     const { error: bgStorageError } = await supabase.storage
-                        .from('category-images')
+                        .from('product-assets')
                         .remove([bgFileName]);
 
                     if (bgStorageError) console.error('Error deleting background image:', bgStorageError);
@@ -1014,7 +1014,7 @@ document.getElementById('editCategoryForm').dataset.removeMainImage = 'false';
                 if (category.main_image_url) {
                     const mainFileName = category.main_image_url.split('/').pop();
                     const { error: mainStorageError } = await supabase.storage
-                        .from('category-images')
+                        .from('product-assets')
                         .remove([mainFileName]);
 
                     if (mainStorageError) console.error('Error deleting main image:', mainStorageError);
