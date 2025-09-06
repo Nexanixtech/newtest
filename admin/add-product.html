@@ -22,7 +22,7 @@
     </script>
 </head>
 
-<body class="admin-page">
+<body>
     <style>
         /* Video with Background Color */
         .video-bg-container {
@@ -855,15 +855,7 @@
                 const fileName = `${Math.random()}.${fileExt}`
                 const filePath = `${path}/${fileName}`
 
-                // Get the current session
-                const { data: { session }, error: sessionError } = await supabase.auth.getSession()
-                if (sessionError) {
-                    console.error('Session error:', sessionError)
-                    throw new Error('Failed to get session: ' + sessionError.message)
-                }
-                if (!session) {
-                    throw new Error('No active session')
-                }
+                
 
                 console.log('Uploading file:', {
                     path: filePath,
@@ -1425,14 +1417,6 @@ if (bannerImageFile) {
         });
      
     </script>
-
-<script>
-  function adminLogout() {
-    localStorage.removeItem('adminSession');
-    window.location.href = "login.html";
-  }
-</script>
-
 </body>
 
 </html>
